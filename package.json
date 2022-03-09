@@ -1,0 +1,14 @@
+{
+  "name": "hugo-vanilla-lazyload",
+  "version": "1.0.0",
+  "description": "Hugo module to include vanilla-lazyload in your hugo projects",
+  "main": "index.js",
+  "scripts": {
+    "dist": "cp node_modules/vanilla-lazyload/dist/lazyload.min.js assets/js/lazyload.min.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vanilla-lazyload": "^17.6.1"
+  }
+}
