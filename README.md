@@ -1,4 +1,4 @@
-# Use vanulla-lazyload in your hugo project
+# Use vanilla-lazyload in your hugo project
 
 
 ## Add as a module to your hugo installation by adding:
