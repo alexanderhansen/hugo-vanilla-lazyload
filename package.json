@@ -1,14 +1,18 @@
 {
-  "name": "hugo-vanilla-lazyload",
+  "name": "hugo-awesome-images",
   "version": "1.0.0",
-  "description": "Hugo module to include vanilla-lazyload in your hugo projects",
+  "description": "Hugo module to include awesome image libraries in your hugo projects",
   "main": "index.js",
   "scripts": {
-    "dist": "cp node_modules/vanilla-lazyload/dist/lazyload.min.js assets/js/lazyload.min.js"
+    "dist": "cp node_modules/vanilla-lazyload/dist/lazyload.min.js node_modules/lightense-images/dist/lightense.min.js assets/js/"
   },
-  "author": "",
+  "author": "Alexander Hansen",
+  "repository": {
+    "url": "https://github.com/alexanderhansen/hugo-awesome-images"
+  },
   "license": "ISC",
   "dependencies": {
+    "lightense-images": "^1.0.17",
     "vanilla-lazyload": "^17.6.1"
   }
 }
