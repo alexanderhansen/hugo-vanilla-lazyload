@@ -1,8 +1,28 @@
+{{ $file := .Get "src" }}
+{{ $urlAppend := "" }}
+{{ range .Page.Resources.ByType "image" }}
+    {{ if eq .String $file}}
+        {{ $image := .Fill "600x600 smart" }}   
+        {{ $.Scratch.Set "imageSrc" . }}
+    {{ end }}
+{{ end }}
+
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
     {{- if .Get "link" -}}
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- end -}}
     <img data-src="{{ .Get "src" }}"
+        {{- with .Get "withSrcSet" -}}
+        {{- $image := $.Scratch.Get "imageSrc" -}}
+        {{- $image_1 := $image.Resize "1000x webp q85" -}}
+        {{- $image_2 := $image.Resize "2000x webp q85" -}}
+        {{- $image_3 := $image.Resize "3000x webp q85" -}}
+        {{- $image_4 := $image.Resize "4000x webp q85" -}}
+        data-srcSet="{{ $image_1.Permalink }} 1000w, 
+        {{ $image_2.Permalink }} 2000w,
+        {{ $image_3.Permalink }} 3000w,
+        {{ $image_4.Permalink }} 4000w"
+        {{- end -}}
         {{- if or (.Get "alt") (.Get "caption") }}
         alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
         {{- end -}}
