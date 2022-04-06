@@ -10,12 +10,13 @@
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- end -}}
     {{- $image := $.Scratch.Get "imageSrc" -}}
-    <img data-src="{{ ($image.Resize "1000x webp q65").Permalink }}"
+    <img class="lazy lightense"
+        data-src="{{ ($image.Resize "1000x webp").Permalink }}"
         {{- with .Get "withSrcSet" -}}
-        {{- $image_1 := $image.Resize "1000x webp q65" -}}
-        {{- $image_2 := $image.Resize "2000x webp q65" -}}
-        {{- $image_3 := $image.Resize "3000x webp q65" -}}
-        {{- $image_4 := $image.Resize "4000x webp q65" -}}
+        {{- $image_1 := $image.Resize "1000x webp" -}}
+        {{- $image_2 := $image.Resize "2000x webp" -}}
+        {{- $image_3 := $image.Resize "3000x webp" -}}
+        {{- $image_4 := $image.Resize "4000x webp" -}}
         data-srcSet="{{ $image_1.Permalink }} 1000w, 
         {{ $image_2.Permalink }} 2000w,
         {{ $image_3.Permalink }} 3000w,
@@ -30,7 +31,6 @@
         data-lightense-cubic-bezier="cubic-bezier(.2, 0, .1, 1)"
         data-lightense-background="rgba(0, 0, 0, .96)"
         data-lightense-z-index="2147483647"
-        class="lazy lightense"
     /><!-- Closing img tag -->
     {{- if .Get "link" }}</a>{{ end -}}
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
