@@ -11,6 +11,7 @@
     {{- end -}}
     {{- $image := $.Scratch.Get "imageSrc" -}}
     <img class="lazy lightense"
+        src="{{ ($image.Resize "1000x webp").Permalink }}"
         data-src="{{ ($image.Resize "1000x webp").Permalink }}"
         {{- with .Get "withSrcSet" -}}
         {{- $image_1 := $image.Resize "1000x webp" -}}

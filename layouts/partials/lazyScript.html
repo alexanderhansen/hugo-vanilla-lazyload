@@ -1,4 +1,9 @@
-<script type="text/javascript">
+<script type="text/javascript" async>
+  var checkExist = setInterval(function() {
+    if (LazyLoad) {
+       clearInterval(checkExist);
+    }
+ }, 100);
     var lazyLoadInstance = new LazyLoad({
         // Your custom settings go here
       });
