@@ -13,6 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "lightense-images": "^1.0.17",
-    "vanilla-lazyload": "^17.6.1"
+    "vanilla-lazyload": "^18.0.0"
   }
 }
